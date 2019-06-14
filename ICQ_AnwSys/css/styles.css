@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:900i');
+
+@media (max-width: 767px) {
+
+	body {
+		font-size: 60% !important; 
+	}
+
+	[class*="col-"] {
+	  height: 100% !important;
+	}
+
+	.user_container {
+		max-height: 18vh;
+		min-height: 18vh;
+	}
+
+	.channel-container {
+		max-height: 18vh;
+		min-height: 18vh;
+	}
+
+	.message-container {
+		max-height: 50vh;
+		min-height: 50vh;
+	}
+
+	.typing-container {
+		max-height: 20vh;
+		min-height: 20vh;
+	}
+
+	.dropdown-menu {
+		font-size: 60%;
+	}
+}
+
+
+
+
+/* ----- Classes ----- */
+.create_channel .alert {
+	max-width: 90%;
+}
+
+.col-md-4 {
+	padding: 0;
+	height: 20vh;
+}
+.user_list {
+}
+
+.channel_item {
+}
+
+.channel_list {
+	list-style: square;
+	list-style: none;
+	text-align: left;
+	padding-left: 2%;
+}
+
+.content {
+	width: 100%;
+	padding-right: 0.8%;
+}
+.chat {
+	height: 100vh;
+}
+
+.user-info {
+	padding: 0 !important;
+	height: 100vh;
+}
+
+.username {
+	margin-left: 20%;
+	margin-top: 5%;
+}
+
+.username_display {
+	margin-left: 20%;
+	font-weight: 700;
+	color: black;
+	font-size: 160%;
+	visibility: hidden;
+}
+
+.comment {
+	display: flex;
+	flex-direction: column;
+	margin-left: 0;
+	margin-right: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.user-container {
+	height: 50%;
+	padding-left: 5%;
+	padding-bottom: 2%;
+}
+
+.channel-container {
+	height: 50%;
+	padding-left: 5%;
+}
+
+.message-container {
+	height: 85vh;
+	background-image: url(../images/background_messages.jpg);
+	background-size: 100% 100%;
+  	background-repeat: no-repeat;
+}
+
+.typing-container {
+	padding: 0;
+	padding-left: 2%;
+	padding-right: 2%;
+	padding-top: 1%;
+	height: 15vh;
+	background-color: rgba(1, 10, 19, 1);
+}
+
+.active_channel_display {
+	text-align: left;
+	margin-left: 20%;
+	margin-bottom: 4%;
+	font-weight: 600;
+	color: rgba(113, 123, 148, 1);
+	font-size: 120%;
+}
+
+.messages_display {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 5%;
+	text-align: left;
+	padding-left: 5px;
+	max-height: 20%;
+	min-height: 20%;
+	min-width: 90%;
+	background-color: rgba(103, 113, 138, 1);
+	font-size: 80%;
+	border-radius: 3px;
+}
+
+.offline_image {
+	height: 10px;
+	width: 10px;
+	float: left;
+	margin-top: 15px;
+	margin-right: 5px;
+}
+
+.channel_header {
+	padding-top: 2%;
+	padding-bottom: 2%;
+	color: rgba(182, 178, 205, 1);
+	font-size: 150%;
+}
+
+.dropdown_users {
+	color: rgba(182, 178, 205, 1);
+	font-size: 120%;
+	font-style: bold;
+	margin-bottom: 2%;
+}
+
+.dropdown_channels {
+	color: rgba(182, 178, 205, 1);
+	font-size: 120%;
+	font-style: bold;
+	margin-bottom: 2%;
+	margin-top: 4%;
+}
+
+.dropdown-menu {
+ 	
+ 	overflow-y: scroll;
+ 	min-height: 20vh;
+ 	max-height: 30vh;
+}
+
+.btn-group {
+	border-radius: 3px;
+}
+
+.fa, .fa-bars {
+	height: 1%;
+	margin-left: 10px;
+}
+
+
+/* ----- IDs ----- */
+#user {
+	color: white;
+	background-color: rgba(10, 71, 128, 1);
+	border: 2px solid black;
+}
+
+#username {
+	border-radius: 5px;
+	padding-left: 1%;
+}
+
+#channels {
+	color: white;
+	background-color: rgba(7, 50, 90, 1);
+	border: 2px solid black;
+}
+
+#messages {
+	border: 2px rgba(1, 10, 19, 1);
+	overflow-y: scroll;
+	border: 2px solid black;
+}
+
+#typing {
+	
+}
+
+#title {
+	
+}
+
+#channel_name {
+	margin-bottom: 10px;
+	border-radius: 5px;
+	padding-left: 1%;
+}
+
+#channel_topic {
+	margin-bottom: 5px;
+	border-radius: 5px;
+	padding-left: 1%;
+}
+
+#comment {
+	padding: 0;
+	border-radius: 5px;
+	text-align: center;
+	margin-right: 5px;
+	margin-left: 10px;
+}
+
+#submit {
+	text-align: center;
+	min-width: 10%;
+	font-size: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0;
+	border: 1px solid gray;
+	white-space: nowrap;
+}
+
+#reset {
+	text-align: center;
+	min-width: 10%;
+	font-size: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* ----- HTML Elements ----- */
+
+body,html {
+
+	font-family: 'Roboto', sans-serif;
+	font-size: 120%;
+	overflow-x: hidden;
+}
+
+p {
+	background-color: lightgray;
+	border-radius: 3px;
+
+}
+
+h1 {
+	text-align: center;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+		<meta name="description" content="messaging">
+		<meta charset="UTF-8">
+		<!-- CSS Design Sheets -->
+		<link rel="stylesheet" media="screen and (max-width: 767px)" href="smallscreen.css">
+		<link rel="stylesheet" media="screen and (min-width: 768px)" href="widescreen.css">
+		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="frameworks/bootstrap.css">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<!-- Javascript Frameworks -->
+		<script src="frameworks/jquery.js"></script>
+		<script src="frameworks/bootstrap.bundle.js"></script>
+		<!-- Script to create Username-->
+		<script src="scripts/create_username.js"></script>
+		<!-- Script to update active user list-->
+		<script src="scripts/update_users.js"></script>
+		<!-- Script to create a Channel-->
+		<script src="scripts/create_channel.js"></script>
+		<!-- Script to display channel list -->
+		<script src="scripts/channel_list.js"></script>
+		<!-- Script to send a message to the selcted channel -->
+		<script src="scripts/send_message.js"></script>
+		<title>ICQ</title>
+
+	</head>
+	<body>
+
+		<div class="content">
+			<div class="row">
+				<!-- User infos -->
+				<div class="col-md-5 user-info">
+					<div class="user-container" id="user">
+
+						<!-- Username + active users in channel -->	
+						<div class="username_display"></div>
+						<form method="post" class="username">
+							<input type="text" id="username" placeholder="Username"></input>
+						</form>
+						
+						<div class="active_channel_display">
+							<img src="../ICQ_AnwSys/images/red_dot.ico" class="offline_image">
+							No active channel
+						</div>
+						<!-- Dropdown User_list -->
+						<span class="dropdown_users"> Active users in channel</span> 
+						<div id="switch_drop" class="btn-group dropright">
+							<button class="btn btn-secondary fa fa-bars" id="dropdown_users" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled></button>
+							<div class="dropdown-menu">
+								<ul class="user_channel_list">
+									<li class="user_list dropdown-item">User_1</li>
+									<li class="user_list dropdown-item">User_2</li>
+									<li class="user_list dropdown-item">User_3</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+					<!-- Create a channel & show channel list -->
+					<div class="channel-container" id="channels">	
+						<h1 class="channel_header">Channels</h1>
+
+						<div class="create_channel" id="create-channel">
+							<form method="post">
+								<input type="text" id="channel-name" name="channel-name" placeholder="Name" disabled>
+								<input type="text" id="channel-topic" name="channel-topic" placeholder="Topic" disabled>
+							</form>
+
+						</div>
+						
+						<!-- Dropdown channel_list -->
+						<span class="dropdown_channels"> Channel list </span>
+						<div id="switch_drop" class="btn-group dropright">
+							<button class="btn btn-secondary fa fa-bars" id="dropdown_channels" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+							</button>
+							<!-- Channels are listed here -->
+							<div class="dropdown-menu">
+								<ul class="channel_list"></ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Show messages -->
+				<div class="chat col-md-7">
+					<div class="row message-container" id="messages">
+
+						<div class="messages_display"> Message 1 </div>
+						<div class="messages_display"> Message 2 </div>
+						<div class="messages_display"> Message 3 </div>
+						<div class="messages_display"> Message 4 </div>
+						<div class="messages_display"> Message 5 </div>
+						<div class="messages_display"> Message 6 </div>
+						<div class="messages_display"> Message 7 </div>
+						<div class="messages_display"> Message 8 </div>
+						<div class="messages_display"> Message 9 </div>
+						<div class="messages_display"> Message 10 </div>
+
+
+					</div>
+					<!-- Create a message and send it -->
+					<div class="row typing-container" id="typing">
+						<form method=" post" class="comment">
+							<textarea id="comment" name="comment" placeholder="Your message" disabled></textarea>
+							<div class="form-inline" style="padding-top: 1%;">
+								<input type="submit" id="submit" name="submit" value="Submit!" disabled>
+								<input type="reset" id="reset" name="reset" value="Reset" disabled>
+							</div>
+						</form>
+					</div>		
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>
