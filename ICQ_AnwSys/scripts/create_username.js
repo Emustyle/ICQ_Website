@@ -1,51 +1,79 @@
-
-
-
+/* Create a username to use the app */
 $(document).ready(function() {
-	// Show alert for 5s and remove it
-	$(".user-container").prepend('<div class="alert alert-warning text-left" id="channel_create_alert" role="alert" style="max-width: 95%;">'+ 
-	'<button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
-	'<div aria-hidden="true">&times;</div></button><strong>Please choose a username</strong></div>');
+  const createUsernameTag = $('#create-username');
+  const usernameTag = $('#username');
+  const displayUsernameTag = $('#display-username');
+  const usernameForm = $('#username-form');
+  const channelInputs = $('.channel-input');
+  let channelArray = [];
 
-	setTimeout(function() {
-		$('#channel_create_alert').remove();
-			}, 5000);
+  // initial check what to display
+  checkForUsername();
 
-		// Change dropdown behavior on small devices
-		$(window).on('resize', function() {
-		if($(window).width() < 767) {
-			$('#switch_drop').removeClass('dropright');
-			$('#switch_drop').addClass('dropdown');
-		}
-		else {
-			$('#switch_drop').addClass('dropright');
-			$('#switch_drop').removeClass('dropdown');
-		}
-	});
-	// Check enter-press in username_input
-	$( '#username' ).keypress( function (create_username) {
+  // disable channel inputs if no username exists otherwise display username and disable username form
+  function checkForUsername() {
+    if (sessionStorage.getItem('username') === null) {
+      channelInputs
+        .prop('disabled', true)
+        .prop('placeholder', 'Choose username first');
+    } else {
+      displayUsernameTag.css('visibility', 'visible').addClass('username-display').text(sessionStorage.getItem('username'))
+      usernameForm.css('display', 'none');
+      usernameTag.remove();
+      $('.active-user-list').css('visibility', 'visible');
+      $("#channel-topic").removeAttr("disabled");
+	  $("#channel-name").removeAttr("disabled");
+	  $("#comment").removeAttr("disabled");
+	  $("#submit").removeAttr("disabled");
+	  $("#reset").removeAttr("disabled");
+	  $("#dropdown-channels").removeAttr("disabled");
+      channelInputs
+        .prop('disabled', false)
+      // get existing channels
+      getChannelList();
+    }
+  }
 
-		// If enter pressed...
-		if (create_username.keyCode == 13) {
-			var username = $('#username').val();
-			console.log(username); // Debug
+  // if submit button is clicked 
+  createUsernameTag.click(() => setUsername());
 
-			// If username not empty...
-			if(username != '') {
-				$( '.username_display' ).text(username).css('visibility' , 'visible').css('padding-top', '4%').css('color', 'rgba(8, 8, 43, 1)'); // Show username
-				$( '.username' ).remove();	// Hide Username_input
-				// Enable all bouttons and inputs on website
-				$("#channel-topic").removeAttr("disabled");
-	            $("#channel-name").removeAttr("disabled");
-	            $("#channel-topic").removeAttr("disabled");
-	            $("#comment").removeAttr("disabled");
-	            $("#submit").removeAttr("disabled");
-	            $("#reset").removeAttr("disabled");
-	            $("#dropdown_users").removeAttr("disabled");
-	            $("#dropdown_channels").removeAttr("disabled");
-			}          
-		}
-	});	                
+  // If enter pressed call setUsername
+  usernameTag.keypress( function (create_username) {
+    if (create_username.keyCode == 13) {
+      setUsername();
+    }
+  });	                
+
+
+  // validate the username
+  function setUsername() {
+
+    if (usernameTag.val() != '') {
+      let username = usernameTag.val();
+      sessionStorage.setItem('username', username); 
+      checkForUsername();
+    } else {
+      alert('Username must be at least 4 characters long');
+    }
+  };
+
+  function getChannelList() {
+    $.ajax({
+      url: "http://34.243.3.31:8080/channels?size=5",
+      type: "GET",
+      headers: {"X-Group-Token": "3NiMhdWegfyw"},
+      contentType: "application/json; charset=utf-8",
+      success: function(data){
+        $.each(data._embedded.channelList, function(i, item){
+          channelArray.push(item);
+          $('.channel_list').append('<li class="channel-item dropdown-item" id="'+item.id+'" onclick="update_users()"><strong>'+ item.name + '</strong>	#'+item.topic+'</li>');
+
+
+        });
+      },
+      failure: function(err){alert(err);}
+    });		
+  }
 });
 
 

@@ -10,7 +10,7 @@
 	  height: 100% !important;
 	}
 
-	.user_container {
+	.user-container {
 		max-height: 18vh;
 		min-height: 18vh;
 	}
@@ -39,7 +39,7 @@
 
 
 /* ----- Classes ----- */
-.create_channel .alert {
+.create-channel .alert {
 	max-width: 90%;
 }
 
@@ -47,13 +47,17 @@
 	padding: 0;
 	height: 20vh;
 }
-.user_list {
+.user-list {
+	padding-left: 5%;
 }
 
-.channel_item {
+.user-channel-list {
+	padding-left: 0;
+}
+.channel-item {
 }
 
-.channel_list {
+.channel-list {
 	list-style: square;
 	list-style: none;
 	text-align: left;
@@ -78,12 +82,14 @@
 	margin-top: 5%;
 }
 
-.username_display {
+.username-display {
 	margin-left: 20%;
 	font-weight: 700;
 	color: black;
 	font-size: 160%;
 	visibility: hidden;
+	padding-top: 4%;
+	color: rgba(8, 8, 43, 1);
 }
 
 .comment {
@@ -111,6 +117,7 @@
 	background-image: url(../images/background_messages.jpg);
 	background-size: 100% 100%;
   	background-repeat: no-repeat;
+  	overflow-y: scroll;
 }
 
 .typing-container {
@@ -122,7 +129,7 @@
 	background-color: rgba(1, 10, 19, 1);
 }
 
-.active_channel_display {
+.active-channel-display {
 	text-align: left;
 	margin-left: 20%;
 	margin-bottom: 4%;
@@ -131,7 +138,7 @@
 	font-size: 120%;
 }
 
-.messages_display {
+.messages-display {
 	margin-top: 5px;
 	margin-bottom: 5px;
 	margin-left: 5%;
@@ -145,7 +152,7 @@
 	border-radius: 3px;
 }
 
-.offline_image {
+.on-offline-image {
 	height: 10px;
 	width: 10px;
 	float: left;
@@ -153,21 +160,21 @@
 	margin-right: 5px;
 }
 
-.channel_header {
+.channel-header {
 	padding-top: 2%;
 	padding-bottom: 2%;
 	color: rgba(182, 178, 205, 1);
 	font-size: 150%;
 }
 
-.dropdown_users {
+.dropdown-users {
 	color: rgba(182, 178, 205, 1);
 	font-size: 120%;
 	font-style: bold;
 	margin-bottom: 2%;
 }
 
-.dropdown_channels {
+.dropdown-channels {
 	color: rgba(182, 178, 205, 1);
 	font-size: 120%;
 	font-style: bold;
@@ -182,6 +189,14 @@
  	max-height: 30vh;
 }
 
+.active-user-list {
+	max-height: 20vh;
+	overflow-y: scroll;
+	visibility: hidden;
+	font-size: 120%;
+	color: black;
+}
+
 .btn-group {
 	border-radius: 3px;
 }
@@ -189,6 +204,10 @@
 .fa, .fa-bars {
 	height: 1%;
 	margin-left: 10px;
+}
+
+.form-inline {
+	padding-top: 1%;
 }
 
 
@@ -202,6 +221,10 @@
 #username {
 	border-radius: 5px;
 	padding-left: 1%;
+}
+
+#username-form {
+	padding-left: 20%;
 }
 
 #channels {
@@ -224,13 +247,13 @@
 	
 }
 
-#channel_name {
+#channel-name {
 	margin-bottom: 10px;
 	border-radius: 5px;
 	padding-left: 1%;
 }
 
-#channel_topic {
+#channel-topic {
 	margin-bottom: 5px;
 	border-radius: 5px;
 	padding-left: 1%;
